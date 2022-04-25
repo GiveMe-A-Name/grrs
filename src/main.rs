@@ -1,7 +1,8 @@
 use anyhow::{Context, Error};
 use clap::Parser;
+use grrs::find_matches;
 use std::fs;
-use std::io::{self, Write};
+use std::io;
 
 #[derive(Debug, Parser)]
 struct Cli {
@@ -17,10 +18,6 @@ fn main() -> Result<(), Error> {
     let content = fs::read_to_string(&args.path)
         .with_context(|| format!("could not read file {:?}", &args.path))?;
 
-    for line in content.lines() {
-        if line.contains(&args.pattern) {
-            writeln!(handle, "foo: {}", 42)?;
-        }
-    }
+    find_matches(&content, &args.pattern, &mut handle);
     Ok(())
 }

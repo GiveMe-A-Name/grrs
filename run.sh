@@ -1,1 +1,1 @@
-cargo run foobar
+cargo run foobar test.txt
