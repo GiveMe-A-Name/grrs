@@ -8,11 +8,11 @@ description = "A tool to search line in file"
 readme = "README.md"
 keywords = ["cli", "search", "demo"]
 repository = "https://github.com/GiveMe-A-Name/grrs"
+categories = ["command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
-anyhow = "1.0"
 indicatif = "0.16.2"
 
 [dev-dependencies]
